@@ -4,48 +4,107 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#fff"
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/resultado"
-        android:layout_width="279dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="16dp"
-        android:text="0"
-        android:textAlignment="center"
-        android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="763dp" />
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="11dp"
+        android:text="Selecione o equipamento"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/spinner"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="27dp"
+        android:layout_marginBottom="5dp"
+        android:text="Potencia em Watts"
+        app:layout_constraintBottom_toTopOf="@+id/input_watts"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="63dp"
+        android:layout_marginBottom="5dp"
+        android:text="Dias por mês"
+        app:layout_constraintBottom_toTopOf="@+id/input_dias"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="5dp"
+        android:text=" Tempo de funcionamento"
+        app:layout_constraintBottom_toTopOf="@+id/input_horas"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:layout_marginEnd="44dp"
-        android:text="KW/H"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:layout_editor_absoluteY="763dp" />
-
-    <TextView
-        android:id="@+id/custo"
-        android:layout_width="279dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="80dp"
-        android:text="0"
-        android:textAlignment="center"
-        android:textSize="24sp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="341dp"
+        android:layout_marginEnd="50dp"
+        android:text="Cancelar"
+        app:layout_constraintEnd_toStartOf="@+id/button2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button2" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="341dp"
+        android:layout_marginEnd="50dp"
+        android:onClick="calcular"
+        android:text="Avançar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="287dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="11dp"
+        android:layout_marginEnd="108dp"
+        android:entries="@array/eletrodomesticos"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
     <EditText
-        android:id="@+id/input_dias2"
+        android:id="@+id/input_watts"
+        android:layout_width="189dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="148dp"
+        android:ems="10"
+        android:hint="potencia em Watts"
+        android:inputType="numberDecimal"
+        android:numeric="signed|integer|decimal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/input_dias"
         android:layout_width="177dp"
         android:layout_height="48dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="324dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="268dp"
         android:ems="10"
         android:hint="Dias"
         android:inputType="numberDecimal"
@@ -57,8 +116,8 @@
         android:id="@+id/input_horas"
         android:layout_width="165dp"
         android:layout_height="49dp"
-        android:layout_marginTop="204dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginTop="148dp"
+        android:layout_marginEnd="10dp"
         android:ems="10"
         android:hint="em Horas"
         android:inputType="numberDecimal"
@@ -67,57 +126,33 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="28dp"
+        android:id="@+id/resultado"
+        android:layout_width="279dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
-        android:layout_marginBottom="11dp"
-        android:text="Selecione o equipamento"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toTopOf="@+id/spinner"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:text="0"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button" />
 
     <TextView
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="70dp"
-        android:layout_marginBottom="4dp"
+        android:layout_marginEnd="81dp"
+        android:layout_marginBottom="5dp"
         android:text="Tarifas"
-        android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/input_tarifa"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="45dp"
-        android:layout_marginBottom="4dp"
-        android:text="Dias por mês"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/input_dias"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="4dp"
-        android:text=" Tempo de funcionamento"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/input_horas"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <EditText
         android:id="@+id/input_tarifa"
         android:layout_width="173dp"
         android:layout_height="48dp"
-        android:layout_marginTop="324dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginTop="268dp"
+        android:layout_marginEnd="10dp"
         android:ems="10"
         android:hint="em KW/H"
         android:inputType="numberDecimal"
@@ -125,117 +160,38 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/button01"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="396dp"
-        android:layout_marginEnd="70dp"
-        android:text="Cancelar"
-        app:layout_constraintEnd_toStartOf="@+id/button2"
-        app:layout_constraintHorizontal_bias="0.413"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginBottom="4dp"
-        android:text="Potencia em Watts"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/input_watts"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Spinner
-        android:id="@+id/spinner"
-        android:layout_width="287dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="64dp"
-        android:layout_marginEnd="108dp"
-        android:entries="@array/eletrodomesticos"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
-
-    <EditText
-        android:id="@+id/input_watts"
-        android:layout_width="189dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="204dp"
-        android:ems="10"
-        android:hint="potencia em Watts"
-        android:inputType="numberDecimal"
-        android:numeric="signed|integer|decimal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/button2"
+        android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:layout_marginTop="396dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="44dp"
-        android:onClick="calcular"
-        android:text="Avançar"
+        android:text="KW/H"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/button" />
 
     <TextView
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="68dp"
         android:layout_marginEnd="80dp"
         android:text="R$"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button2" />
 
-    <EditText
-        android:id="@+id/input_dias"
-        android:layout_width="177dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="324dp"
-        android:ems="10"
-        android:hint="Dias"
-        android:inputType="numberDecimal"
-        android:numeric="signed|integer|decimal"
+    <TextView
+        android:id="@+id/custo"
+        android:layout_width="279dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="68dp"
+        android:text="0"
+        android:textAlignment="center"
+        android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="50dp"
-        android:text="Avançar"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/custo"
-        app:layout_constraintVertical_bias="0.474" />
-
-    <Button
-        android:id="@+id/id_voltar"
-        android:layout_width="96dp"
-        android:layout_height="36dp"
-        android:layout_marginStart="70dp"
-        android:layout_marginEnd="70dp"
-        android:background="#0004FF"
-        android:text="VOLTAR"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/button"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/custo"
-        app:layout_constraintVertical_bias="0.455" />
+        app:layout_constraintTop_toBottomOf="@+id/button2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

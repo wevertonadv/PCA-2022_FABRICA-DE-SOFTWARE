@@ -2,19 +2,14 @@ package com.example.fabricadesoftware;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
 
 public class MainActivity extends AppCompatActivity {
-
-
-    private Button botao;
 
     EditText inputWatts;
     EditText inputDias;
@@ -27,30 +22,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        botao = findViewById(R.id.button);
-
-        botao.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                Intent intent = new Intent(MainActivity.this,Tela2.class);
-                startActivity(intent);
-            }
-        });
-
-        botao = findViewById(R.id.id_voltar);
-
-        botao.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                Intent intent = new Intent(MainActivity.this,Tela1.class);
-                startActivity(intent);
-            }
-        });
-
-
 
         inputWatts = findViewById(R.id.input_watts);
         inputDias = findViewById(R.id.input_dias);
